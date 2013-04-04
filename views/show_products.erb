@@ -1,0 +1,28 @@
+
+
+<html>
+
+<head>
+	<title>Products Listing for The Ruby Store</title>
+	<link href="storecss.css" rel="stylesheet">
+</head>
+<h1>Products Listing</h1>
+
+<table>
+	<tr class="head">
+		<th>ID</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>On-Sale?</th>
+	</tr>
+	<% @pr.each do |row| %>
+		<tr>
+				<td><%= row['id'] %></td>
+				<td><%= row['name'] %></td>
+				<td><%= row['price'] %></td>
+				<td><%= "<img src='knewstuff.ico'>" if (row['on_sale'] = 't') %></td>
+		</tr>
+	<% end %>
+</table>
+
+</html>

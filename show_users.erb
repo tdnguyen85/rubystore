@@ -1,0 +1,22 @@
+
+
+<html>
+<head>
+	<link href="storecss.css" rel="stylesheet">
+</head>
+
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+	</tr>
+	<% @rs.each do |row| %>
+		<tr>
+				<td><%= row['id'] %></td>
+				<td><%= row['name'] %></td>
+		</tr>
+	<% end %>
+</table>
+
+</html>
