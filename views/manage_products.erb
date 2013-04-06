@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<title>Manage Your Products</title>
+	
+	<link href="bootstrap.css" rel="stylesheet">
+</head>
+<h1>Products to Manage</h1>
+
+<table>
+	<tr class="head">
+		<th>ID</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>On-Sale?</th>
+		<th>Update Item</th>
+		<th>Delete Item</th>
+
+	</tr>
+	<% @rs.each do |row| %>
+		<tr>
+				<td><%= row['id'] %></td>
+				<td><%= row['name'] %></td>
+				<td><%= row['price'] %></td>
+				
+				<td><form action='/products/<%= row['id'] %>/update' method='get'><button type="text" name="update">UPDATE</button>
+						</form>
+						
+				<td><form action='/products/<%= row['id'] %>/destroy' method='post'>
+							<button type='text' name='id'/>DELETE</button>	 		
+						</form>
+				</td>
+		</tr>
+	<% end %>
+</table>
+<br>
+<div>
+<form action='/products/new' method='get'>
+	<button>ADD NEW PRODUCT TO CATALOG</button>
+</form>
+</div>
+<br>
+
+
+</html>

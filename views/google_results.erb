@@ -1,0 +1,13 @@
+
+<h1>You searched for <%= @q %></h1>
+
+<% @results["items"].each do |item| %>
+	
+		<% product = item["product"] %>
+		<div>
+		<p><img src="<%= product["images"][0] %>"></p>
+		<p><%= product["title"] %></p>
+		<p><%= product["description"] %></p>
+	</div>
+<% end %>
+

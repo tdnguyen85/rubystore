@@ -14,6 +14,8 @@
 		<th>Name</th>
 		<th>Price</th>
 		<th>On-Sale?</th>
+		<th>Twitter Search</th>
+		<th>Google Search</th>
 	</tr>
 	<% @rs.each do |row| %>
 		<tr>
@@ -21,8 +23,18 @@
 				<td><%= row['name'] %></td>
 				<td><%= row['price'] %></td>
 				<td><%= "<img src='knewstuff.ico'>" if (row['on_sale'] = 't') %></td>
+				<td><form action="/products/search?q=<%= URI.escape(row['name']) %>" method='get'>
+								<button>Search on Twitter</button>
+						</form>
+				</td>
+				<td><form action="/products/search?q=<%= URI.escape(row['name']) %>" method='get'>
+								<button>Search on Google</button>
+						</form>
+				</td>
 		</tr>
 	<% end %>
 </table>
+
+
 
 </html>

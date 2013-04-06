@@ -1,0 +1,21 @@
+<h1>Update Product Page</h1>
+<br>
+<br>
+
+<br>
+<form action="/products/<%= @row['id'] %>/update" method='post'>
+	<p>
+		<label for='name'>New Name</label>
+		<input type='text' name='<%= @row['name'] %>'/>
+	</p>
+	<p>
+		<label for='price'>New Price</label>
+		<input type='text' name='<%= @row['price'] %>'/>
+	</p>
+	<p>
+	
+		<input type="checkbox" name="<%= @row['on_sale'] %>" value"t"/>On Sale
+		<input type="checkbox" name="<%= @row['on_sale'] %>" value"f"/>Not On Sale
+	</p>
+	<button>UPDATE</button>
+</form>

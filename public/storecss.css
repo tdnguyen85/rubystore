@@ -36,13 +36,12 @@ th, td {
 	border-right: 1px solid #cbd2d8;
 }
 tr:nth-child(even) {
-	background-color: #e0e9f0;
+	background-color: #E0FFFF;
 }
+
+
 tr:nth-child(odd) {
-   background-color: #e6e6fa;
-}
-tr:nth-child(odd) {
-   background-color: #4682b4;
+   background-color: #AFEEEE;
 }
 tr.head th {
 	color: #ffffff;
