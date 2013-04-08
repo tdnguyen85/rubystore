@@ -56,12 +56,12 @@ get '/products/:id' do   # to show individual product
 end
 
 get '/products/:id/update' do    #page to enter info to edit product
-   # @id = params[:id]
-   # @name = params[:name]
-   # @price = params[:price]
-   # @on_sale = params[:on_sale]
-   # rs = @db.prepare("SELECT * FROM products WHERE id = '#{@id}';").execute
-   # @row = rs.first
+   @id = params[:id]
+   @name = params[:name]
+   @price = params[:price]
+   @on_sale = params[:on_sale]
+   rs = @db.prepare("SELECT * FROM products WHERE id = '#{@id}';").execute
+   @row = rs.first
    erb :update_product
 end
 
@@ -70,7 +70,7 @@ post '/products/:id/update' do     # to update product
   @name = params[:name]
   @price = params[:price]
   @on_sale = params[:on_sale]
-  @rs = @db.prepare("UPDATE products SET name = '#{@name}', price = '#{@price}', on_sale = '#{@n_sale}' WHERE id = #{@id};").execute
+  rs = @db.prepare("UPDATE products SET name = '#{@name}', price = '#{@price}', on_sale = '#{@n_sale}' WHERE id = '#{@id}';").execute
   erb :manage_products
 end
 
@@ -79,9 +79,9 @@ get '/products/:id/destroy' do
 end
 
 post '/products/:id/destroy' do
-  id = params[:id]
-  @id = id
-  @rs = @db.prepare("DELETE FROM products WHERE id = #{@id};").execute
+  @id = params[:id]
+  
+  @rs = @db.prepare("DELETE FROM products WHERE id = '#{@id}';").execute
   erb :product_deleted
 end
 
@@ -102,7 +102,7 @@ end
 
 get 'products' do
   @q = params[:q]
-  file = open("https://www.googleapis.com/shopping/search/v1/public/products?key=AIzaSyAVctk-qzBQFBR2kyfAMKstIWU-Cs8nsJE&country=US&q=#{URI.escape(@q)}&alt=json")
+  file = open("https://www.googleapis.com/shopping/search/v1/public/products?key=AIzaSyAVctk-qzBQFBR2kyfAMKstIWU-Cs8nsJE&country=US&q=#{URI.escape(@q)}&alt=json",:ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE)
   @results = JSON.load(file.read)
   erb :google_results
 end

@@ -23,11 +23,11 @@
 				<td><%= row['name'] %></td>
 				<td><%= row['price'] %></td>
 				
-				<td><form action='/products/<%= row['id'] %>/update' method='get'><button type="text" name="update">UPDATE</button>
+				<td><form action='/products/<%= row['id'] %>/update' method='get'><button class="btn-mini" type="text" name="update">UPDATE</button>
 						</form>
 						
 				<td><form action='/products/<%= row['id'] %>/destroy' method='post'>
-							<button type='text' name='id'/>DELETE</button>	 		
+							<button class="btn-mini" type='text' name='id'/>DELETE</button>	 		
 						</form>
 				</td>
 		</tr>
@@ -36,7 +36,7 @@
 <br>
 <div>
 <form action='/products/new' method='get'>
-	<button>ADD NEW PRODUCT TO CATALOG</button>
+	<button class="btn btn-info">ADD NEW PRODUCT TO CATALOG</button>
 </form>
 </div>
 <br>

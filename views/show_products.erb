@@ -4,11 +4,11 @@
 
 <head>
 	<title>Products Listing for The Ruby Store</title>
-	<link href="storecss.css" rel="stylesheet">
+	<link href="bootstrap.css" rel="stylesheet">
 </head>
 <h1>Products Listing</h1>
 
-<table>
+<table class="table table-striped table_hover table-condensed">
 	<tr class="head">
 		<th>ID</th>
 		<th>Name</th>
@@ -24,11 +24,11 @@
 				<td><%= row['price'] %></td>
 				<td><%= "<img src='knewstuff.ico'>" if (row['on_sale'] = 't') %></td>
 				<td><form action="/products/search?q=<%= URI.escape(row['name']) %>" method='get'>
-								<button>Search on Twitter</button>
+								<button class="btn-mini">Search on Twitter</button>
 						</form>
 				</td>
 				<td><form action="/products/search?q=<%= URI.escape(row['name']) %>" method='get'>
-								<button>Search on Google</button>
+								<button class="btn-mini">Search on Google</button>
 						</form>
 				</td>
 		</tr>

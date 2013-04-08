@@ -1,4 +1,12 @@
-<h1>Update Product Page</h1>
+
+<html>
+<head>
+	<title>Manage Your Products</title>
+	
+	<link href="bootstrap.css" rel="stylesheet">
+</head>
+
+<h1 class="h1">Update Product Page</h1>
 <br>
 <br>
 
@@ -6,16 +14,18 @@
 <form action="/products/<%= @row['id'] %>/update" method='post'>
 	<p>
 		<label for='name'>New Name</label>
-		<input type='text' name='<%= @row['name'] %>'/>
+		<input type='text' name='name'/>
 	</p>
 	<p>
 		<label for='price'>New Price</label>
-		<input type='text' name='<%= @row['price'] %>'/>
+		<input type='text' name='price'/>
 	</p>
 	<p>
 	
-		<input type="checkbox" name="<%= @row['on_sale'] %>" value"t"/>On Sale
-		<input type="checkbox" name="<%= @row['on_sale'] %>" value"f"/>Not On Sale
+		<input type="checkbox" name="on_sale" value="t" />On Sale
+		<input type="checkbox" name="on_sale" value="f" />Not On Sale
 	</p>
 	<button>UPDATE</button>
 </form>
+
+</html>
